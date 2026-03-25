@@ -20,3 +20,8 @@ position = Vector2(0, -7)
 texture = ExtResource("2_px1sc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
