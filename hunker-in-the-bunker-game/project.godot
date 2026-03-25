@@ -56,3 +56,7 @@ ui_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[navigation]
+
+2d/merge_rasterizer_cell_scale=0.001
