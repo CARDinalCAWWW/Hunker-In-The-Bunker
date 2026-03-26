@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://pw5xbgungxwb"]
+[gd_scene load_steps=9 format=4 uid="uid://pw5xbgungxwb"]
 
 [ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/Land1.png" id="1_bdbf3"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
 [ext_resource type="PackedScene" uid="uid://l5vfbm5wjyuw" path="res://Player/player.tscn" id="2_88nlx"]
 [ext_resource type="PackedScene" uid="uid://y77uhfy36syk" path="res://Enemy/enemy.tscn" id="4_bdbf3"]
+[ext_resource type="PackedScene" uid="uid://dwb61br4w7fnu" path="res://Weapon/weapon.tscn" id="4_to4hi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxk8t"]
 texture = ExtResource("1_bdbf3")
@@ -73,6 +74,9 @@ script = ExtResource("2_4mk7f")
 [node name="Player" parent="." instance=ExtResource("2_88nlx")]
 position = Vector2(-63, 25)
 moveSpeed = 50.0
+
+[node name="Weapon" parent="Player" instance=ExtResource("4_to4hi")]
+position = Vector2(7, -6)
 
 [node name="Enemy1" parent="." instance=ExtResource("4_bdbf3")]
 position = Vector2(32, 22)
