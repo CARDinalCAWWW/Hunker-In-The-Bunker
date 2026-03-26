@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fndmpqwcxvb2"
-path="res://.godot/imported/Land1.png-7b8859c13ff760ddd1a6bd3aea03795a.ctex"
+path="res://.godot/imported/Land1.png-c4808326c7a460d48c8361fe972ee8fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Play Area/Land1.png"
-dest_files=["res://.godot/imported/Land1.png-7b8859c13ff760ddd1a6bd3aea03795a.ctex"]
+source_file="res://PlayArea/Land1.png"
+dest_files=["res://.godot/imported/Land1.png-c4808326c7a460d48c8361fe972ee8fd.ctex"]
 
 [params]
 
