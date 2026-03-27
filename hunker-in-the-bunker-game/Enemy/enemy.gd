@@ -44,7 +44,9 @@ func stun():
 	await get_tree().create_timer(DEATH_COOLDOWN).timeout
 	
 	var new_enemy = ENEMY_SCENE.instantiate()
-	new_enemy.global_position = global_position + Vector2(randf_range(-2,2), randf_range(-2,2))
+	var x_offset = randf_range(-7, -4) if randi() % 2 == 0 else randf_range(4,7)
+	var y_offset = randf_range(-7, -4) if randi() % 2 == 0 else randf_range(4,7)
+	new_enemy.global_position = global_position + Vector2(x_offset, y_offset)
 	
 	# New enemy inherits speed upgrades
 	new_enemy.current_max_speed = current_max_speed
