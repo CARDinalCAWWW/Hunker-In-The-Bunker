@@ -18,7 +18,7 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_4ntmi")
 move_speed = 50.0
-ATTACK_COOLDOWN = 2.0
+ATTACK_COOLDOWN = 1.7
 attack_distance = 13.0
 IFRAME_TIME = 2.0
 

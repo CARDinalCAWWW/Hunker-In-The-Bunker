@@ -8,7 +8,8 @@ var speed
 @onready var navigation_agent = $NavigationAgent2D
 @onready var player = get_tree().get_first_node_in_group("player")
 
-@export var DEATH_COOLDOWN = 2
+@export var DEATH_COOLDOWN = 2.0
+@export var enemy_health = 2
 
 var got_hit := false
 const ENEMY_SCENE = preload("res://Enemy/enemy.tscn")
@@ -16,7 +17,12 @@ const ENEMY_SCENE = preload("res://Enemy/enemy.tscn")
 func _ready():
 	speed = randf_range(10,current_max_speed)
 
+func _process(delta):
+	if enemy_health <= 0:
+		die()
+
 func _physics_process(_delta):
+	player = get_tree().get_first_node_in_group("player")
 	if player == null:
 		return
 	
@@ -36,7 +42,9 @@ func _physics_process(_delta):
 func stun():
 	if got_hit:
 		return
+	
 	got_hit = true
+	enemy_health -= 1
 	
 	if current_max_speed < top_speed:
 		current_max_speed += speed_inc
@@ -53,6 +61,9 @@ func stun():
 	new_enemy.top_speed = top_speed
 	new_enemy.speed_inc = speed_inc
 	
-	get_tree().root.get_node("PlayArea/EnemyContainer").add_child(new_enemy)
+	get_parent().add_child(new_enemy)
 	
 	got_hit = false
+
+func die():
+	queue_free()
