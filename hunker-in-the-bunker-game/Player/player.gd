@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var hitbox_shape: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
+@onready var attack_sprite: Sprite2D = $AttackArea/SlashSprite
 
 @export var move_speed = 16.0
 @export var ATTACK_COOLDOWN = 0.5
@@ -21,6 +22,8 @@ func _ready():
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	hitbox_area.body_entered.connect(_on_hitbox_body_entered)
 	attack_area_origin = attack_area.position
+	
+	attack_sprite.visible = false
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -53,15 +56,18 @@ func _on_attack_area_body_entered(body):
 func perform_attack():
 	can_attack = false
 	attack_shape.disabled = false # Enable area hitbox
+	attack_sprite.visible = true
 	
 	var mouse_pos = get_local_mouse_position()
 	var attack_dir = mouse_pos.normalized()
 	var attack_target = attack_area_origin + attack_dir * attack_distance
+	attack_sprite.rotation = attack_dir.angle()
 	
 	attack_area.position = attack_target
 	
 	await get_tree().create_timer(0.15).timeout # Hitbox active window
 	attack_shape.disabled = true # Disable area hitbox
+	attack_sprite.visible = false
 	attack_area.position = attack_area_origin
 	
 	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
