@@ -40,7 +40,7 @@ func _process(delta):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("enemy"):
 		take_damage()
-		if player_health <= 0:
+		if player_health == 1:
 			die()
 		else:
 			return
