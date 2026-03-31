@@ -1,0 +1,21 @@
+extends ProgressBar
+
+var parent
+var max_value_amount
+var min_value_amount
+
+func _ready():
+	parent = get_tree().get_first_node_in_group("player")
+	max_value_amount = parent.player_health
+	min_value_amount = 0  # dead, not starting health
+
+	self.max_value = max_value_amount
+	self.min_value = min_value_amount
+
+func _process(delta: float) -> void:
+	if not is_instance_valid(parent):
+		self.visible = false
+		return
+
+	self.value = parent.player_health
+	self.visible = true  # always show while player is alive

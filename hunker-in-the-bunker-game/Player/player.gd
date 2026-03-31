@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction != Vector2.ZERO:
 		velocity = direction * move_speed
+		velocity = cartesian_to_isometric(velocity)
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -36,6 +37,12 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("attack") and can_attack:
 		perform_attack()
+
+func cartesian_to_isometric(cartesian):
+	var screen_pos = Vector2()
+	screen_pos.x = cartesian.x - cartesian.y
+	screen_pos.y = (cartesian.x + cartesian.y) / 2
+	return screen_pos 
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("enemy"):
