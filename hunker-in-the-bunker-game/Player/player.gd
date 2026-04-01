@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var attack_sprite: Sprite2D = $AttackArea/SlashSprite
 
+@onready var death_text: Label = $"../HUD/Death"
+
 @export var move_speed = 16.0
 @export var ATTACK_COOLDOWN = 0.5
 
@@ -13,6 +15,8 @@ extends CharacterBody2D
 
 @export var player_health = 5
 @export var IFRAME_TIME = 4.0
+
+
 
 var can_attack := true
 var is_invincible := false
@@ -24,12 +28,13 @@ func _ready():
 	attack_area_origin = attack_area.position
 	
 	attack_sprite.visible = false
+	death_text.visible = false
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction != Vector2.ZERO:
 		velocity = direction * move_speed
-		velocity = cartesian_to_isometric(velocity)
+		
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -38,16 +43,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("attack") and can_attack:
 		perform_attack()
 
-func cartesian_to_isometric(cartesian):
-	var screen_pos = Vector2()
-	screen_pos.x = cartesian.x - cartesian.y
-	screen_pos.y = (cartesian.x + cartesian.y) / 2
-	return screen_pos 
+
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("enemy"):
 		take_damage()
-		if player_health == 1:
+		if player_health == 0:
 			die()
 		else:
 			return
@@ -106,5 +107,6 @@ func take_damage():
 	modulate.a = 1.0
 
 func die():
+	death_text.visible = true
 	print("IM DED")
 	queue_free()

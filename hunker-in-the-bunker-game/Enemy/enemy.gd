@@ -16,6 +16,11 @@ const ENEMY_SCENE = preload("res://Enemy/enemy.tscn")
 
 func _ready():
 	speed = randf_range(10,current_max_speed)
+	var health_bar = get_node_or_null("EnemyHealth")
+	if health_bar:
+		health_bar.setup(self)
+	else:
+		print("EnemyHealth no found!!")
 
 func _process(delta):
 	if enemy_health <= 0:

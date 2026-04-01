@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://pw5xbgungxwb"]
+[gd_scene load_steps=11 format=4 uid="uid://pw5xbgungxwb"]
 
 [ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/Land1.png" id="1_bdbf3"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y77uhfy36syk" path="res://Enemy/enemy.tscn" id="4_bdbf3"]
 [ext_resource type="Texture2D" uid="uid://dsavntf8tqxpk" path="res://HealthBar/HB.png" id="5_1l75i"]
 [ext_resource type="PackedScene" uid="uid://cqb4f2e2ufj0i" path="res://HealthBar/health_bar.tscn" id="5_to4hi"]
+[ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/Quit.gd" id="7_mlsi0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxk8t"]
 texture = ExtResource("1_bdbf3")
@@ -97,6 +98,7 @@ navigation_polygon = SubResource("NavigationPolygon_bdbf3")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Hb" type="Sprite2D" parent="HUD"]
+visible = false
 z_index = 1
 texture_filter = 1
 position = Vector2(58.25, 224.5)
@@ -112,3 +114,23 @@ offset_top = -34.0
 offset_right = 102.0
 offset_bottom = -30.0
 grow_vertical = 0
+
+[node name="Button" type="Button" parent="HUD"]
+texture_filter = 1
+offset_left = 190.0
+offset_top = 238.99998
+offset_right = 310.0
+offset_bottom = 270.0
+scale = Vector2(0.5358367, 0.438837)
+text = "Carney Button"
+script = ExtResource("7_mlsi0")
+
+[node name="Death" type="Label" parent="HUD"]
+texture_filter = 1
+offset_left = 94.0
+offset_top = 113.0
+offset_right = 163.0
+offset_bottom = 136.0
+text = "YOU DIED"
+
+[connection signal="pressed" from="HUD/Button" to="HUD/Button" method="_on_pressed"]
