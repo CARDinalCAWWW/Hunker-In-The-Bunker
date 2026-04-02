@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://pw5xbgungxwb"]
+[gd_scene load_steps=12 format=4 uid="uid://pw5xbgungxwb"]
 
 [ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/Land1.png" id="1_bdbf3"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsavntf8tqxpk" path="res://HealthBar/HB.png" id="5_1l75i"]
 [ext_resource type="PackedScene" uid="uid://cqb4f2e2ufj0i" path="res://HealthBar/health_bar.tscn" id="5_to4hi"]
 [ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/Quit.gd" id="7_mlsi0"]
+[ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/score.gd" id="8_pbx73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxk8t"]
 texture = ExtResource("1_bdbf3")
@@ -132,5 +133,13 @@ offset_top = 113.0
 offset_right = 163.0
 offset_bottom = 136.0
 text = "YOU DIED"
+
+[node name="Score" type="Label" parent="HUD" groups=["score"]]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 12
+text = "Points:"
+script = ExtResource("8_pbx73")
 
 [connection signal="pressed" from="HUD/Button" to="HUD/Button" method="_on_pressed"]

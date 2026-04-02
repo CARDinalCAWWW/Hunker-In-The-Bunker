@@ -11,6 +11,7 @@ var speed
 @export var DEATH_COOLDOWN = 2.0
 @export var enemy_health = 2
 
+
 var got_hit := false
 const ENEMY_SCENE = preload("res://Enemy/enemy.tscn")
 
@@ -71,4 +72,10 @@ func stun():
 	got_hit = false
 
 func die():
+	var score_node = get_tree().get_first_node_in_group("score")
+	if score_node:
+		print("Score node found: ", score_node )
+		score_node.addscore()
+	else:
+		print("Score_node not found")
 	queue_free()
