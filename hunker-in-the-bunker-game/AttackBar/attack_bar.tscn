@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vupv3bkynnvw"]
+
+[ext_resource type="Script" uid="uid://s686g32e8m1u" path="res://AttackBar/attack_bar.gd" id="1_pn1fk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7igj3"]
+bg_color = Color(0.11160352, 0, 0.0027438619, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7ell"]
+bg_color = Color(0.20392157, 0.8352941, 0.25490198, 1)
+
+[node name="AttackBar" type="ProgressBar"]
+offset_right = 92.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7igj3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m7ell")
+max_value = 5.0
+show_percentage = false
+script = ExtResource("1_pn1fk")

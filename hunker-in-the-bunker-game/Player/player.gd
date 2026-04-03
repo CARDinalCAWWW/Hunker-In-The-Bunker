@@ -16,11 +16,10 @@ extends CharacterBody2D
 @export var player_health = 5
 @export var IFRAME_TIME = 4.0
 
-
-
 var can_attack := true
 var is_invincible := false
 var attack_area_origin := Vector2.ZERO
+var attack_cooldown_timer = 0.0
 
 func _ready():
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
@@ -78,7 +77,12 @@ func perform_attack():
 	attack_sprite.visible = false
 	attack_area.position = attack_area_origin
 	
-	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
+	attack_cooldown_timer = ATTACK_COOLDOWN
+	while attack_cooldown_timer > 0.0:
+		await get_tree().process_frame
+		attack_cooldown_timer -= get_process_delta_time()
+	attack_cooldown_timer = 0.0
+	
 	can_attack = true
 
 func blink():
