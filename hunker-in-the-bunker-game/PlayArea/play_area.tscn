@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=4 uid="uid://pw5xbgungxwb"]
 
-[ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/Land1.png" id="1_bdbf3"]
-[ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
+[ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/GrassLand/Land1.png" id="1_bdbf3"]
+[ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/GrassLand/tile_map_layer.gd" id="2_4mk7f"]
 [ext_resource type="PackedScene" uid="uid://l5vfbm5wjyuw" path="res://Player/player.tscn" id="2_88nlx"]
 [ext_resource type="PackedScene" uid="uid://y77uhfy36syk" path="res://Enemy/enemy.tscn" id="4_bdbf3"]
 [ext_resource type="Texture2D" uid="uid://dsavntf8tqxpk" path="res://HealthBar/HB.png" id="5_1l75i"]
 [ext_resource type="PackedScene" uid="uid://cqb4f2e2ufj0i" path="res://HealthBar/health_bar.tscn" id="5_to4hi"]
 [ext_resource type="PackedScene" uid="uid://vupv3bkynnvw" path="res://AttackBar/attack_bar.tscn" id="7_jeldu"]
-[ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/Quit.gd" id="7_mlsi0"]
+[ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/CanvasLayers/Quit.gd" id="7_mlsi0"]
 [ext_resource type="Script" uid="uid://b5gcep71buywk" path="res://PlayArea/restart.gd" id="7_sjdh0"]
-[ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/score.gd" id="8_pbx73"]
+[ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="8_pbx73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxk8t"]
 texture = ExtResource("1_bdbf3")
