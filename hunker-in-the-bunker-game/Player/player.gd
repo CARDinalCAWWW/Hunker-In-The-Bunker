@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var attack_sprite: Sprite2D = $AttackArea/SlashSprite
+@onready var tile_map = get_parent().get_node("TileMapBase")
 
 @onready var death_text: Label = $"../HUD/Death"
 
@@ -30,9 +31,15 @@ func _ready():
 	death_text.visible = false
 
 func _physics_process(delta: float) -> void:
+	var map_pos = tile_map.local_to_map(tile_map.to_local(global_position))
+	var tile_data = tile_map.get_cell_tile_data(map_pos)
+	var current_modifier = 1.0
+	if tile_data:
+		current_modifier = tile_data.get_custom_data("speed_mod")
+	
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction != Vector2.ZERO:
-		velocity = direction * move_speed
+		velocity = direction * move_speed * current_modifier
 		
 	else:
 		velocity = Vector2.ZERO
