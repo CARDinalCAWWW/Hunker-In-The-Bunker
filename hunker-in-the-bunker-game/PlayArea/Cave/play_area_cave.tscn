@@ -15,26 +15,33 @@
 texture = ExtResource("1_ct3mc")
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -4)
+1:0/0/custom_data_0 = 1.0
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -4)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -4)
 2:0/0/z_index = 1
+2:0/0/custom_data_0 = 1.0
 3:0/0 = 0
 3:0/0/texture_origin = Vector2i(0, -4)
 3:0/0/z_index = 1
+3:0/0/custom_data_0 = 1.0
 3:1/0 = 0
 3:1/0/texture_origin = Vector2i(0, 4)
+3:1/0/custom_data_0 = 0.5
 2:1/0 = 0
 2:1/0/texture_origin = Vector2i(0, 4)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
+2:1/0/custom_data_0 = 1.0
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, 4)
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
+1:1/0/custom_data_0 = 1.0
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(0, 4)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
+0:1/0/custom_data_0 = 1.0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
@@ -48,6 +55,8 @@ texture = ExtResource("1_ct3mc")
 tile_shape = 1
 tile_size = Vector2i(16, 8)
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "speed_mod"
+custom_data_layer_0/type = 3
 sources/1 = SubResource("TileSetAtlasSource_fgcdv")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bdbf3"]
@@ -87,6 +96,7 @@ position = Vector2(-2, -57)
 position = Vector2(48, 2)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(-5, 8)
 navigation_polygon = SubResource("NavigationPolygon_bdbf3")
 
