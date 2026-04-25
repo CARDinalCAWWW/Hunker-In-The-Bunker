@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://y77uhfy36syk"]
+[gd_scene load_steps=27 format=3 uid="uid://y77uhfy36syk"]
 
 [ext_resource type="Script" uid="uid://civauqvf8ct2i" path="res://Enemy/enemy.gd" id="1_px1sc"]
 [ext_resource type="Texture2D" uid="uid://cxu2nd3tq6ilr" path="res://Enemy/Zombie-Sheet.png" id="2_am0pq"]
 [ext_resource type="PackedScene" uid="uid://cjvsrfwlgdjsc" path="res://EnemyHealth/enemyhealth.tscn" id="3_am0pq"]
-[ext_resource type="Script" path="res://Enemy/sprite_2d.gd" id="3_eqilm"]
+[ext_resource type="Script" uid="uid://bs5hhht4tbxml" path="res://Enemy/sprite_2d.gd" id="3_eqilm"]
+[ext_resource type="Texture2D" uid="uid://cpj7i7h2n83ro" path="res://Player/Shadow.png" id="5_ncf7h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hvfyp"]
 radius = 2.0
@@ -180,8 +181,7 @@ z_index = 2
 texture_filter = 1
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_efk13")
-animation = &"NewZombie"
-frame_progress = 0.7242079
+animation = &"Walk"
 script = ExtResource("3_eqilm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -196,3 +196,9 @@ offset_left = -9.0
 offset_top = -18.0
 offset_right = 10.0
 offset_bottom = -16.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -4)
+texture = ExtResource("5_ncf7h")

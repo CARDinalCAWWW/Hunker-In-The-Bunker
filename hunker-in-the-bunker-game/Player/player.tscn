@@ -1,11 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://l5vfbm5wjyuw"]
+[gd_scene load_steps=15 format=3 uid="uid://l5vfbm5wjyuw"]
 
 [ext_resource type="Script" uid="uid://bmcdbq48iwi1i" path="res://Player/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://3qipu0bohxyx" path="res://Player/HunkerInTheBunkerChar.png" id="2_btcbx"]
+[ext_resource type="Texture2D" uid="uid://nbgoi47yicup" path="res://Player/CharBase-Recovered-Sheet.png" id="2_gwnis"]
 [ext_resource type="Texture2D" uid="uid://x4vvj0yflan" path="res://Player/HunkerInTheBunkerSlash.png" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://hql2ncmflhsg" path="res://Player/sprite_2d.gd" id="3_gwnis"]
+[ext_resource type="Texture2D" uid="uid://cpj7i7h2n83ro" path="res://Player/Shadow.png" id="4_k53q1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hvfyp"]
 radius = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
+atlas = ExtResource("2_gwnis")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
+atlas = ExtResource("2_gwnis")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+atlas = ExtResource("2_gwnis")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+atlas = ExtResource("2_gwnis")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
+atlas = ExtResource("2_gwnis")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3vf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhl08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00tjw")
+}],
+"loop": true,
+"name": &"CharWalk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
 radius = 3.0
@@ -26,11 +71,13 @@ IFRAME_TIME = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hvfyp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 texture_filter = 1
 position = Vector2(0, -7)
-texture = ExtResource("2_btcbx")
+sprite_frames = SubResource("SpriteFrames_x3vf3")
+animation = &"CharWalk"
+script = ExtResource("3_gwnis")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -56,3 +103,8 @@ z_index = 2
 texture_filter = 1
 position = Vector2(1, -7)
 texture = ExtResource("3_btcbx")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -4)
+texture = ExtResource("4_k53q1")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bylstdkwpk3yk"]
+
+[ext_resource type="Texture2D" uid="uid://dv3xd02f4cs4o" path="res://MainMenu/MainMenu.png" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://f22qdsyhb8la" path="res://MainMenu/StartButton.png" id="4_nlkkf"]
+[ext_resource type="Script" uid="uid://bmfk7h4f5ocy0" path="res://MainMenu/start.gd" id="5_qe12f"]
+[ext_resource type="Texture2D" uid="uid://dble8t17o8uu3" path="res://MainMenu/QuitButton.png" id="6_jdgnk"]
+[ext_resource type="Script" uid="uid://cby6cwrys66n5" path="res://MainMenu/quit.gd" id="6_nlkkf"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_06t4h")
+
+[node name="Start" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 82.0
+offset_top = 122.0
+offset_right = 176.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 16
+icon = ExtResource("4_nlkkf")
+flat = true
+script = ExtResource("5_qe12f")
+
+[node name="Quit" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 82.0
+offset_top = 153.0
+offset_right = 176.0
+offset_bottom = 180.0
+icon = ExtResource("6_jdgnk")
+flat = true
+script = ExtResource("6_nlkkf")
+
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://pw5xbgungxwb"]
+[gd_scene load_steps=16 format=4 uid="uid://pw5xbgungxwb"]
 
 [ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/GrassLand/Land1.png" id="1_bdbf3"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cqb4f2e2ufj0i" path="res://HealthBar/health_bar.tscn" id="5_to4hi"]
 [ext_resource type="PackedScene" uid="uid://vupv3bkynnvw" path="res://AttackBar/attack_bar.tscn" id="7_jeldu"]
 [ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/CanvasLayers/Quit.gd" id="7_mlsi0"]
-[ext_resource type="Script" path="res://PlayArea/restart.gd" id="7_sjdh0"]
+[ext_resource type="Script" uid="uid://b5gcep71buywk" path="res://PlayArea/restart.gd" id="7_sjdh0"]
 [ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="8_pbx73"]
+[ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="10_683yk"]
+[ext_resource type="Texture2D" uid="uid://c82ntdmbqb86y" path="res://PlayArea/GrassLand/LandBg.png" id="11_df0sw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxk8t"]
 texture = ExtResource("1_bdbf3")
@@ -75,7 +77,10 @@ cell_size = 5.0
 border_size = 1.0
 agent_radius = 3.0
 
-[node name="PlayArea" type="Node2D"]
+[node name="PlayArea2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("11_df0sw")
 
 [node name="TileMapBase" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -138,21 +143,26 @@ offset_bottom = 233.0
 [node name="Restart" type="Button" parent="HUD"]
 texture_filter = 1
 offset_left = 190.99998
-offset_top = 222.99998
-offset_right = 311.0
-offset_bottom = 253.99998
+offset_top = 211.99998
+offset_right = 306.7069
+offset_bottom = 257.57507
 scale = Vector2(0.5358367, 0.438837)
+theme_override_fonts/font = ExtResource("10_683yk")
+theme_override_font_sizes/font_size = 32
 text = "Restart"
+autowrap_trim_flags = 0
 script = ExtResource("7_sjdh0")
 
 [node name="Button" type="Button" parent="HUD"]
 texture_filter = 1
-offset_left = 190.0
-offset_top = 238.99998
-offset_right = 310.0
-offset_bottom = 270.0
+offset_left = 191.0
+offset_top = 234.99998
+offset_right = 306.7069
+offset_bottom = 280.57507
 scale = Vector2(0.5358367, 0.438837)
-text = "Carney Button"
+theme_override_fonts/font = ExtResource("10_683yk")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
 script = ExtResource("7_mlsi0")
 
 [node name="Death" type="Label" parent="HUD"]
@@ -161,13 +171,18 @@ offset_left = 94.0
 offset_top = 113.0
 offset_right = 163.0
 offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("10_683yk")
+theme_override_font_sizes/font_size = 32
 text = "YOU DIED"
 
 [node name="Score" type="Label" parent="HUD" groups=["score"]]
 texture_filter = 1
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 45.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("10_683yk")
+theme_override_font_sizes/font_size = 16
 text = "Points:"
 script = ExtResource("8_pbx73")
 
