@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hunker In The Bunker Game"
-run/main_scene="uid://pw5xbgungxwb"
+run/main_scene="uid://bylstdkwpk3yk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

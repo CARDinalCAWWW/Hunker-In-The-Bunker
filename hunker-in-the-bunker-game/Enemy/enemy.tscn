@@ -103,7 +103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ht3ht")
 }],
-"loop": true,
+"loop": false,
 "name": &"Get Up",
 "speed": 5.0
 }, {
@@ -123,7 +123,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3cio7")
 }],
-"loop": true,
+"loop": false,
 "name": &"NewZombie",
 "speed": 5.0
 }, {
@@ -140,7 +140,7 @@ animations = [{
 "duration": 0.71,
 "texture": SubResource("AtlasTexture_lh1vl")
 }],
-"loop": true,
+"loop": false,
 "name": &"Stun",
 "speed": 5.0
 }, {
@@ -181,7 +181,7 @@ z_index = 2
 texture_filter = 1
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_efk13")
-animation = &"Walk"
+animation = &"NewZombie"
 script = ExtResource("3_eqilm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

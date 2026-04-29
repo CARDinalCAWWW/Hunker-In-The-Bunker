@@ -52,10 +52,15 @@ func stun():
 	got_hit = true
 	enemy_health -= 1
 	
+	$Sprite2D.play("Stun")
+	
 	if current_max_speed < top_speed:
 		current_max_speed += speed_inc
 	
 	await get_tree().create_timer(DEATH_COOLDOWN).timeout
+	
+	$Sprite2D.play("Get Up")
+	await $Sprite2D.animation_finished
 	
 	var new_enemy = ENEMY_SCENE.instantiate()
 	var x_offset = randf_range(-7, -4) if randi() % 2 == 0 else randf_range(4,7)
@@ -68,6 +73,9 @@ func stun():
 	new_enemy.speed_inc = speed_inc
 	
 	get_parent().add_child(new_enemy)
+	$Sprite2D.play("NewZombie")
+	await $Sprite2D.animation_finished
+	$Sprite2D.play("Walk")
 	
 	got_hit = false
 
