@@ -17,6 +17,8 @@ extends CharacterBody2D
 @export var player_health = 5
 @export var IFRAME_TIME = 4.0
 
+
+var dragged_item: ItemData
 var can_attack := true
 var is_invincible := false
 var attack_area_origin := Vector2.ZERO
@@ -29,6 +31,16 @@ func _ready():
 	
 	attack_sprite.visible = false
 	death_text.visible = false
+	
+	var slots = get_tree().get_nodes_in_group("hotbar_slots")
+	var slot_index = 0
+	for item in ScoreManager.purchased_items:
+		if slot_index >= slots.size():
+			break
+			slots[slot_index].item = item
+			slots[slot_index].quantity = ScoreManager.purchased_items[item]
+			slots[slot_index].update_visual()
+			slot_index += 1
 
 func _physics_process(delta: float) -> void:
 	var map_pos = tile_map.local_to_map(tile_map.to_local(global_position))
@@ -51,15 +63,15 @@ func _process(delta):
 
 
 
+var is_dead := false
+
 func _on_hitbox_body_entered(body):
+	if is_dead:
+		return
 	if body.is_in_group("enemy"):
 		take_damage()
-		if player_health == 0:
+		if player_health <= 0:
 			die()
-		else:
-			return
-	else:
-		return
 
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("enemy"):
@@ -68,28 +80,34 @@ func _on_attack_area_body_entered(body):
 		return
 
 func perform_attack():
+	if is_dead:
+		return
 	can_attack = false
-	attack_shape.disabled = false # Enable area hitbox
+	attack_shape.disabled = false
 	attack_sprite.visible = true
 	
 	var mouse_pos = get_local_mouse_position()
 	var attack_dir = mouse_pos.normalized()
 	var attack_target = attack_area_origin + attack_dir * attack_distance
 	attack_sprite.rotation = attack_dir.angle()
-	
 	attack_area.position = attack_target
 	
-	await get_tree().create_timer(0.15).timeout # Hitbox active window
-	attack_shape.disabled = true # Disable area hitbox
+	await get_tree().create_timer(0.15).timeout
+	
+	if is_dead:  # check again after await in case player died during attack window
+		return
+		
+	attack_shape.disabled = true
 	attack_sprite.visible = false
 	attack_area.position = attack_area_origin
 	
 	attack_cooldown_timer = ATTACK_COOLDOWN
 	while attack_cooldown_timer > 0.0:
 		await get_tree().process_frame
+		if is_dead:
+			return
 		attack_cooldown_timer -= get_process_delta_time()
 	attack_cooldown_timer = 0.0
-	
 	can_attack = true
 
 func blink():
@@ -116,8 +134,44 @@ func take_damage():
 	hitbox_shape.disabled = false
 	
 	modulate.a = 1.0
+	
+	
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 
+			var item = null
+
+			if get_tree().root.has_meta("dragged_item"):
+				item = get_tree().root.get_meta("dragged_item")
+
+			if item and item.placeable:
+				spawn_item(item)
+
+			if get_tree().root.has_meta("dragged_item"):
+				get_tree().root.remove_meta("dragged_item")
+				
+func spawn_item(item_data: ItemData) -> void:
+	if item_data.world_scene == null:
+		return
+	var instance = item_data.world_scene.instantiate()
+	get_tree().current_scene.add_child(instance)
+	instance.global_position = get_global_mouse_position()
+	
+	# find the slot holding this item and decrease quantity
+	var slots = get_tree().get_nodes_in_group("hotbar_slots")
+	for slot in slots:
+		if slot.item == item_data:
+			slot.use_item()
+			break
+	
 func die():
+	if is_dead:
+		return
+	is_dead = true
 	death_text.visible = true
 	print("IM DED")
-	queue_free()
+	call_deferred("_change_scene")
+
+func _change_scene():
+	get_tree().change_scene_to_file("res://Shop/shop_scene.tscn")

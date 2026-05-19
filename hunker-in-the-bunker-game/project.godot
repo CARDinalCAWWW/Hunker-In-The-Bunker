@@ -15,6 +15,12 @@ run/main_scene="uid://bylstdkwpk3yk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneTracker="*res://Resources/SceneTracker.gd"
+Score="*res://PlayArea/CanvasLayers/score.gd"
+ScoreManager="*res://PlayArea/Score_manager.gd"
+
 [display]
 
 window/size/viewport_width=256

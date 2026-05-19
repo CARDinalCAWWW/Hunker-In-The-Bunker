@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://btpt4jb4fjvhi"]
+
+[ext_resource type="Texture2D" uid="uid://c5yy7bm5wseen" path="res://Shop/ShopBG.png" id="1_m4aye"]
+[ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="2_xxwuv"]
+[ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/CanvasLayers/Quit.gd" id="4_28apo"]
+[ext_resource type="Texture2D" uid="uid://clgddkexc21u0" path="res://Resources/ButtonBase.png" id="5_28apo"]
+[ext_resource type="Script" uid="uid://dhfy5i3rapjq1" path="res://Shop/nxt_lvl.gd" id="5_treba"]
+[ext_resource type="Script" uid="uid://bj6pp7buo4je7" path="res://Shop/retry.gd" id="6_h6pe3"]
+[ext_resource type="PackedScene" uid="uid://ctf4ehhhmgkq4" path="res://Shop/shop_item.tscn" id="7_tuxfc"]
+[ext_resource type="Resource" uid="uid://crlodtr0nfi1w" path="res://Resources/Turret.tres" id="8_treba"]
+[ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="8_tuxfc"]
+[ext_resource type="PackedScene" uid="uid://cqirwlsxcjnc1" path="res://Shop/Hotbar.tscn" id="10_xxpc3"]
+
+[node name="ShopScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 257.0
+offset_bottom = 258.0
+texture = ExtResource("1_m4aye")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 27.11
+offset_right = 243.0
+offset_bottom = 66.0
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 214.99998
+offset_right = 296.7706
+offset_bottom = 274.2475
+scale = Vector2(0.5358367, 0.438837)
+theme_override_fonts/font = ExtResource("2_xxwuv")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+icon = ExtResource("5_28apo")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_28apo")
+
+[node name="NxtLvl" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 95.0
+offset_top = 214.99998
+offset_right = 225.63681
+offset_bottom = 274.2475
+scale = Vector2(0.5358367, 0.438837)
+theme_override_fonts/font = ExtResource("2_xxwuv")
+theme_override_font_sizes/font_size = 32
+text = "Caves
+"
+icon = ExtResource("5_28apo")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_treba")
+
+[node name="Retry" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.999998
+offset_top = 212.99998
+offset_right = 153.50307
+offset_bottom = 281.36255
+scale = Vector2(0.5358367, 0.438837)
+theme_override_fonts/font = ExtResource("2_xxwuv")
+theme_override_font_sizes/font_size = 32
+text = "Plains"
+icon = ExtResource("5_28apo")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_h6pe3")
+
+[node name="ShopItem" parent="." instance=ExtResource("7_tuxfc")]
+layout_mode = 1
+offset_left = -87.0
+offset_top = -72.0
+offset_right = -305.0
+offset_bottom = -291.0
+item = ExtResource("8_treba")
+
+[node name="Score" type="Label" parent="." groups=["score"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2_xxwuv")
+theme_override_font_sizes/font_size = 16
+text = "Points:"
+script = ExtResource("8_tuxfc")
+
+[node name="Hotbar" parent="." instance=ExtResource("10_xxpc3")]
+offset = Vector2(67.01, -36.095)
+transform = Transform2D(1, 0, 0, 1, 67.01, -36.095)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="NxtLvl" to="NxtLvl" method="_on_pressed"]
+[connection signal="pressed" from="Retry" to="Retry" method="_on_pressed"]

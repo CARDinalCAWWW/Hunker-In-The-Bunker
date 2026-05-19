@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://crlodtr0nfi1w"]
+
+[ext_resource type="Script" uid="uid://d16lwmouty2nq" path="res://item_data.gd" id="1_nc1x0"]
+[ext_resource type="Texture2D" uid="uid://cjhonp8scc0xw" path="res://Items/Turret.png" id="1_tq2la"]
+[ext_resource type="PackedScene" uid="uid://bhyqltx6icaun" path="res://Items/turret.tscn" id="3_r76wp"]
+
+[resource]
+script = ExtResource("1_nc1x0")
+item_name = "Turret"
+icon = ExtResource("1_tq2la")
+placeable = true
+world_scene = ExtResource("3_r76wp")
+metadata/_custom_type_script = "uid://d16lwmouty2nq"

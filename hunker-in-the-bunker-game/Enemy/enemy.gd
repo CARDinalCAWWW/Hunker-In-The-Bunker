@@ -83,7 +83,7 @@ func die():
 	var score_node = get_tree().get_first_node_in_group("score")
 	if score_node:
 		print("Score node found: ", score_node )
-		score_node.addscore()
+		ScoreManager.add_score()
 	else:
 		print("Score_node not found")
 	queue_free()

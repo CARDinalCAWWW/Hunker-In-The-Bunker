@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqirwlsxcjnc1"]
+
+[ext_resource type="Script" uid="uid://81dbd28oy67k" path="res://Shop/slot.gd" id="2_2bdrk"]
+[ext_resource type="Texture2D" uid="uid://qhc5v7uh62v6" path="res://Items/itemframe.png" id="2_pssro"]
+
+[node name="Hotbar" type="CanvasLayer"]
+
+[node name="Slot" type="TextureRect" parent="." groups=["hotbar_slots"]]
+z_index = 5
+texture_filter = 1
+offset_left = 8.0
+offset_top = 236.00002
+offset_right = 41.0
+offset_bottom = 268.0
+scale = Vector2(0.5982146, 0.5981115)
+mouse_filter = 0
+texture = ExtResource("2_pssro")
+expand_mode = 1
+script = ExtResource("2_2bdrk")
+
+[node name="QuantityLabel" type="Label" parent="Slot"]
+layout_mode = 0
+offset_left = 15.044767
+offset_top = 8.359619
+offset_right = 33.432816
+offset_bottom = 31.35962
+
+[node name="Slot2" type="TextureRect" parent="." groups=["hotbar_slots"]]
+z_index = 5
+texture_filter = 1
+offset_left = 29.999998
+offset_top = 236.0
+offset_right = 63.0
+offset_bottom = 268.0
+scale = Vector2(0.59821546, 0.5981115)
+texture = ExtResource("2_pssro")
+expand_mode = 1
+script = ExtResource("2_2bdrk")
+
+[node name="QuantityLabel" type="Label" parent="Slot2"]
+layout_mode = 0
+offset_left = 15.044767
+offset_top = 8.359619
+offset_right = 33.432816
+offset_bottom = 31.35962
+
+[node name="Slot3" type="TextureRect" parent="." groups=["hotbar_slots"]]
+z_index = 5
+texture_filter = 1
+offset_left = 52.0
+offset_top = 236.00002
+offset_right = 85.0
+offset_bottom = 268.0
+scale = Vector2(0.5982146, 0.5981115)
+texture = ExtResource("2_pssro")
+expand_mode = 1
+script = ExtResource("2_2bdrk")
+
+[node name="QuantityLabel" type="Label" parent="Slot3"]
+layout_mode = 0
+offset_left = 15.044767
+offset_top = 8.359619
+offset_right = 33.432816
+offset_bottom = 31.35962
+
+[node name="Slot4" type="TextureRect" parent="." groups=["hotbar_slots"]]
+z_index = 5
+texture_filter = 1
+offset_left = 73.99999
+offset_top = 236.00003
+offset_right = 106.99999
+offset_bottom = 268.00003
+scale = Vector2(0.59821475, 0.5981112)
+texture = ExtResource("2_pssro")
+expand_mode = 1
+script = ExtResource("2_2bdrk")
+
+[node name="QuantityLabel" type="Label" parent="Slot4"]
+layout_mode = 0
+offset_left = 15.044767
+offset_top = 8.359619
+offset_right = 33.432816
+offset_bottom = 31.35962
+
+[node name="Slot5" type="TextureRect" parent="." groups=["hotbar_slots"]]
+z_index = 5
+texture_filter = 1
+offset_left = 96.0
+offset_top = 236.00002
+offset_right = 129.0
+offset_bottom = 268.0
+scale = Vector2(0.59821814, 0.5981115)
+texture = ExtResource("2_pssro")
+expand_mode = 1
+script = ExtResource("2_2bdrk")
+
+[node name="QuantityLabel" type="Label" parent="Slot5"]
+layout_mode = 0
+offset_left = 15.044767
+offset_top = 8.359619
+offset_right = 33.432816
+offset_bottom = 31.35962

@@ -11,7 +11,7 @@ func setup(enemy_node):
 func _ready():
 	pass  # no longer searching the tree
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not is_instance_valid(parent):
 		self.visible = false
 		return

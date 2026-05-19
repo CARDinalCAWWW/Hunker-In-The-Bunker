@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhyqltx6icaun"]
+
+[ext_resource type="Script" uid="uid://72lpjbg8qa4a" path="res://Items/turret.gd" id="1_vrags"]
+[ext_resource type="Texture2D" uid="uid://cjhonp8scc0xw" path="res://Items/Turret.png" id="2_2jbx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrags"]
+radius = 37.0
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_vrags")
+
+[node name="Gun" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_2jbx4")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="DetectionZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+shape = SubResource("CircleShape2D_vrags")

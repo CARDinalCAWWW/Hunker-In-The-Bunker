@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw5rb3ifvfsn8"]
+
+[ext_resource type="Script" uid="uid://b01i8xe78m12h" path="res://Shop/item.gd" id="1_wqov7"]
+
+[node name="ResourcePreloader" type="ResourcePreloader"]
+script = ExtResource("1_wqov7")

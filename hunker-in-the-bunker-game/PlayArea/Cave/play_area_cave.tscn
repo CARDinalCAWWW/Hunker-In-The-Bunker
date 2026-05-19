@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://djagphwylfb80"]
+[gd_scene load_steps=17 format=4 uid="uid://djagphwylfb80"]
 
 [ext_resource type="Texture2D" uid="uid://bml0a0k2fpwku" path="res://PlayArea/Cave/Cave.png" id="1_ct3mc"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_xv8u6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/CanvasLayers/Quit.gd" id="9_ap038"]
 [ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="10_un1qy"]
 [ext_resource type="Texture2D" uid="uid://cpo58ntrl6c02" path="res://PlayArea/Cave/CaveBG.png" id="11_fgcdv"]
+[ext_resource type="PackedScene" uid="uid://cqirwlsxcjnc1" path="res://Shop/Hotbar.tscn" id="13_xrqho"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fgcdv"]
 texture = ExtResource("1_ct3mc")
@@ -72,7 +73,9 @@ agent_radius = 3.0
 [node name="PlayArea" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 z_index = -12
+y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("11_fgcdv")
 
@@ -180,6 +183,12 @@ theme_override_fonts/font = ExtResource("8_ui3uo")
 theme_override_font_sizes/font_size = 16
 text = "Points:"
 script = ExtResource("10_un1qy")
+
+[node name="Hotbar" parent="HUD" instance=ExtResource("13_xrqho")]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = -1.0
 
 [connection signal="pressed" from="HUD/Restart" to="HUD/Restart" method="_on_pressed"]
 [connection signal="pressed" from="HUD/Button" to="HUD/Button" method="_on_pressed"]
