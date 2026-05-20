@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="8_pbx73"]
 [ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="10_683yk"]
 [ext_resource type="Texture2D" uid="uid://c82ntdmbqb86y" path="res://PlayArea/GrassLand/LandBg.png" id="11_df0sw"]
-[ext_resource type="Script" uid="uid://kwwsycimqtmf" path="res://PlayArea/nxt_lvl.gd" id="11_xhbsq"]
+[ext_resource type="Script" uid="uid://kwwsycimqtmf" path="res://PlayArea/shop_button.gd" id="11_xhbsq"]
 [ext_resource type="AudioStream" uid="uid://bq3xf0olak457" path="res://Music/Plains Music.wav" id="15_jc5fh"]
 [ext_resource type="PackedScene" uid="uid://cqirwlsxcjnc1" path="res://Shop/Hotbar.tscn" id="15_sklti"]
 
@@ -114,6 +114,7 @@ position = Vector2(32, 82)
 visible = false
 position = Vector2(-7, 38)
 navigation_polygon = SubResource("NavigationPolygon_bdbf3")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -158,8 +159,7 @@ text = "Restart"
 autowrap_trim_flags = 0
 script = ExtResource("7_sjdh0")
 
-[node name="NxtLvl" type="Button" parent="HUD"]
-visible = false
+[node name="Shop" type="Button" parent="HUD"]
 texture_filter = 1
 offset_left = 191.0
 offset_top = 189.0
@@ -168,7 +168,7 @@ offset_bottom = 234.5751
 scale = Vector2(0.5358367, 0.438837)
 theme_override_fonts/font = ExtResource("10_683yk")
 theme_override_font_sizes/font_size = 32
-text = "Next LVL"
+text = "Shop"
 script = ExtResource("11_xhbsq")
 
 [node name="Button" type="Button" parent="HUD"]
@@ -210,5 +210,5 @@ volume_db = -30.0
 autoplay = true
 
 [connection signal="pressed" from="HUD/Restart" to="HUD/Restart" method="_on_pressed"]
-[connection signal="pressed" from="HUD/NxtLvl" to="HUD/NxtLvl" method="_on_pressed"]
+[connection signal="pressed" from="HUD/Shop" to="HUD/Shop" method="_on_pressed"]
 [connection signal="pressed" from="HUD/Button" to="HUD/Button" method="_on_pressed"]
