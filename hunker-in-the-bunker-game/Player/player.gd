@@ -42,17 +42,16 @@ func _ready():
 			slots[slot_index].update_visual()
 			slot_index += 1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var map_pos = tile_map.local_to_map(tile_map.to_local(global_position))
 	var tile_data = tile_map.get_cell_tile_data(map_pos)
 	var current_modifier = 1.0
-	if tile_data:
+	if tile_data and not ScoreManager.has_speed_upgrade:
 		current_modifier = tile_data.get_custom_data("speed_mod")
 	
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction != Vector2.ZERO:
 		velocity = direction * move_speed * current_modifier
-		
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -60,8 +59,6 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("attack") and can_attack:
 		perform_attack()
-
-
 
 var is_dead := false
 

@@ -21,9 +21,13 @@ func _ready() -> void:
 func _on_score_changed(new_score: int) -> void:
 	buy_button.disabled = new_score < cost
 
+
 func _on_buy_button_pressed() -> void:
 	print("Button pressed!")
 	print("Can afford: ", ScoreManager.score >= cost)
+	if ScoreManager.buy_item(item, cost):
+		if item.is_speed_upgrade: 
+			ScoreManager.has_speed_upgrade = true
 	if ScoreManager.buy_item(item, cost):
 		print("Bought!")
 		var slots = get_tree().get_nodes_in_group("hotbar_slots")

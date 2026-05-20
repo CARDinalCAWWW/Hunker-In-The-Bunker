@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b27y08cqq81t"]
+
+[ext_resource type="Texture2D" uid="uid://c361dm3wbxn52" path="res://Upgrades/SpeedBoots.png" id="1_kkmtp"]
+[ext_resource type="Script" uid="uid://d16lwmouty2nq" path="res://item_data.gd" id="2_cbicn"]
+
+[resource]
+script = ExtResource("2_cbicn")
+item_name = "SpeedBoots"
+icon = ExtResource("1_kkmtp")
+is_speed_upgrade = true
+metadata/_custom_type_script = "uid://d16lwmouty2nq"

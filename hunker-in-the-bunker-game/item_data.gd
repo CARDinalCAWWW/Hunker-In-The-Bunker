@@ -10,3 +10,6 @@ class_name ItemData
 
 # Scene that gets spawned
 @export var world_scene: PackedScene
+
+# item_data.gd
+@export var is_speed_upgrade: bool = false
