@@ -1,7 +1,7 @@
 extends Control
 
 @export var item: ItemData
-@export var cost: int = 5
+@export var cost: int = 20
 
 @onready var icon: TextureRect = $Icon
 @onready var cost_label: Label = $CostLabel

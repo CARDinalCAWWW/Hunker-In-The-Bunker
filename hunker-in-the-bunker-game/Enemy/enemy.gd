@@ -59,9 +59,14 @@ func stun():
 	
 	await get_tree().create_timer(DEATH_COOLDOWN).timeout
 	
+	spawn_new()
+	
 	$Sprite2D.play("Get Up")
 	await $Sprite2D.animation_finished
 	
+	got_hit = false
+
+func spawn_new():
 	var new_enemy = ENEMY_SCENE.instantiate()
 	var x_offset = randf_range(-7, -4) if randi() % 2 == 0 else randf_range(4,7)
 	var y_offset = randf_range(-7, -4) if randi() % 2 == 0 else randf_range(4,7)
@@ -76,8 +81,6 @@ func stun():
 	$Sprite2D.play("NewZombie")
 	await $Sprite2D.animation_finished
 	$Sprite2D.play("Walk")
-	
-	got_hit = false
 
 func die():
 	var score_node = get_tree().get_first_node_in_group("score")

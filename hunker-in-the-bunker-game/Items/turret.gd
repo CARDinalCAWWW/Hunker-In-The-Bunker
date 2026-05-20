@@ -29,8 +29,10 @@ var kill_on_cooldown := false
 
 func _on_target_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and not kill_on_cooldown:
-		targets.append(body)
+		body.stun()
+		await get_tree().create_timer(2.0).timeout
 		body.enemy_health = 0
+		targets.append(body)
 		kill_on_cooldown = true
 		await get_tree().create_timer(10.0).timeout
 		kill_on_cooldown = false
