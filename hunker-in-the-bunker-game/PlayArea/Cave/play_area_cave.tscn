@@ -106,6 +106,9 @@ position = Vector2(-82, -55)
 [node name="Enemy2" parent="EnemyContainer" instance=ExtResource("4_3rons")]
 position = Vector2(82, 60)
 
+[node name="Enemy4" parent="EnemyContainer" instance=ExtResource("4_3rons")]
+position = Vector2(27, -2)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 position = Vector2(-5, 30)
@@ -117,7 +120,6 @@ metadata/_edit_lock_ = true
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Hb" type="Sprite2D" parent="HUD"]
-visible = false
 z_index = 1
 texture_filter = 1
 position = Vector2(58.25, 224.5)
