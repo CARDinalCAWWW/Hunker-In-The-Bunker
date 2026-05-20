@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btpt4jb4fjvhi"]
+[gd_scene load_steps=12 format=3 uid="uid://btpt4jb4fjvhi"]
 
 [ext_resource type="Texture2D" uid="uid://c5yy7bm5wseen" path="res://Shop/ShopBG.png" id="1_m4aye"]
 [ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="2_xxwuv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctf4ehhhmgkq4" path="res://Shop/shop_item.tscn" id="7_tuxfc"]
 [ext_resource type="Resource" uid="uid://crlodtr0nfi1w" path="res://Resources/Turret.tres" id="8_treba"]
 [ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="8_tuxfc"]
+[ext_resource type="Resource" uid="uid://b27y08cqq81t" path="res://Upgrades/SpeedBoots.tres" id="9_w1rlq"]
 [ext_resource type="PackedScene" uid="uid://cqirwlsxcjnc1" path="res://Shop/Hotbar.tscn" id="10_xxpc3"]
 
 [node name="ShopScene" type="Control"]
@@ -18,6 +19,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Hotbar" parent="." instance=ExtResource("10_xxpc3")]
+layout_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -90,12 +94,23 @@ expand_icon = true
 script = ExtResource("6_h6pe3")
 
 [node name="ShopItem" parent="." instance=ExtResource("7_tuxfc")]
+texture_filter = 1
 layout_mode = 1
 offset_left = -87.0
 offset_top = -72.0
 offset_right = -305.0
 offset_bottom = -291.0
 item = ExtResource("8_treba")
+
+[node name="ShopItem2" parent="." instance=ExtResource("7_tuxfc")]
+texture_filter = 1
+layout_mode = 1
+offset_left = -28.0
+offset_top = -72.0
+offset_right = -246.0
+offset_bottom = -291.0
+item = ExtResource("9_w1rlq")
+cost = 15
 
 [node name="Score" type="Label" parent="." groups=["score"]]
 texture_filter = 1
@@ -108,10 +123,6 @@ theme_override_fonts/font = ExtResource("2_xxwuv")
 theme_override_font_sizes/font_size = 16
 text = "Points:"
 script = ExtResource("8_tuxfc")
-
-[node name="Hotbar" parent="." instance=ExtResource("10_xxpc3")]
-offset = Vector2(67.01, -36.095)
-transform = Transform2D(1, 0, 0, 1, 67.01, -36.095)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="NxtLvl" to="NxtLvl" method="_on_pressed"]

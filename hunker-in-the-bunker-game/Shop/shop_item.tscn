@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctf4ehhhmgkq4"]
+[gd_scene load_steps=3 format=3 uid="uid://ctf4ehhhmgkq4"]
 
 [ext_resource type="Script" uid="uid://ckmiec2778sxt" path="res://shop_item.gd" id="1_k8r3s"]
+[ext_resource type="Texture2D" uid="uid://besfqcmjyww8j" path="res://Items/ItemSell.png" id="2_10dj0"]
 
 [node name="ShopItem" type="Control"]
 layout_mode = 3
@@ -10,6 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k8r3s")
+
+[node name="ItemSell" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(130, 130.5)
+scale = Vector2(2.625, 2.6875)
+texture = ExtResource("2_10dj0")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 0
@@ -26,10 +33,12 @@ offset_right = 151.0
 offset_bottom = 175.0
 
 [node name="BuyButton" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_left = 109.0
 offset_top = 110.0
 offset_right = 151.0
 offset_bottom = 151.0
+flat = true
 
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
