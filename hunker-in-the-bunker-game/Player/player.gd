@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var attack_sprite: Sprite2D = $AttackArea/SlashSprite
 @onready var tile_map = get_parent().get_node("TileMapBase")
+@onready var attackSfx = $AttackArea/AttackSound
+@onready var walkSfx = $WalkSound
 
 @onready var death_text: Label = $"../HUD/Death"
 
@@ -41,6 +43,8 @@ func _ready():
 			slots[slot_index].quantity = ScoreManager.purchased_items[item]
 			slots[slot_index].update_visual()
 			slot_index += 1
+	
+	walkSfx.finished.connect(_on_sfx_finished)
 
 func _physics_process(_delta: float) -> void:
 	var map_pos = tile_map.local_to_map(tile_map.to_local(global_position))
@@ -52,6 +56,8 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction != Vector2.ZERO:
 		velocity = direction * move_speed * current_modifier
+		if not walkSfx.playing:
+			walkSfx.play()
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -59,6 +65,7 @@ func _physics_process(_delta: float) -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("attack") and can_attack:
 		perform_attack()
+		attackSfx.play()
 
 var is_dead := false
 
@@ -93,7 +100,7 @@ func perform_attack():
 	
 	if is_dead:  # check again after await in case player died during attack window
 		return
-		
+	
 	attack_shape.disabled = true
 	attack_sprite.visible = false
 	attack_area.position = attack_area_origin
@@ -174,3 +181,6 @@ func die():
 
 func _change_scene():
 	get_tree().change_scene_to_file("res://Shop/shop_scene.tscn")
+
+func _on_sfx_finished():
+	pass

@@ -66,4 +66,4 @@ texture = ExtResource("5_ncf7h")
 
 [node name="ZombieSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ncf7h")
-volume_db = -25.0
+volume_db = -22.0
