@@ -13,3 +13,4 @@ class_name ItemData
 
 # item_data.gd
 @export var is_speed_upgrade: bool = false
+@export var is_damage_upgrade: bool = false

@@ -7,6 +7,7 @@ var purchased_items: Dictionary = {}   # permanent record of what was bought
 var available_items: Dictionary = {}   # resets each level
 var has_speed_upgrade := false
 var current_level := 1
+var damage_upgrade := 0  # tracks how many damage upgrades bought
 
 func add_score(amount: int = 1) -> void:
 	score += amount

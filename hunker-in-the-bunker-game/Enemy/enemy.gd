@@ -59,7 +59,7 @@ func stun():
 	
 	grownsfx.play()
 	got_hit = true
-	enemy_health -= 1
+	enemy_health -= (1 + ScoreManager.damage_upgrade)  # base damage + upgrades
 	
 	if $Sprite2D.sprite_frames.has_animation("Stun"):
 		$Sprite2D.play("Stun")
@@ -68,6 +68,10 @@ func stun():
 		current_max_speed += speed_inc
 	
 	await get_tree().create_timer(DEATH_COOLDOWN).timeout
+	
+	if enemy_health <= 0:
+		die()
+		return
 	
 	spawn_new()
 
@@ -111,8 +115,13 @@ func spawn_new():
 func die():
 	var score_node = get_tree().get_first_node_in_group("score")
 	if score_node:
-		print("Score node found: ", score_node )
 		ScoreManager.add_score()
-	else:
-		print("Score_node not found")
+	$Sprite2D.stop()
 	queue_free()
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		if is_instance_valid($Sprite2D):
+			$Sprite2D.stop()
+	elif what == NOTIFICATION_EXIT_TREE:
+		if is_instance_valid($Sprite2D):
+			$Sprite2D.stop()

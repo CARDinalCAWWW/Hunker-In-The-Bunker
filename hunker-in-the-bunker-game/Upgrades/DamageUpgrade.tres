@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dk1yn8r0it22"]
+
+[ext_resource type="Script" uid="uid://d16lwmouty2nq" path="res://item_data.gd" id="1_h2wqo"]
+[ext_resource type="Texture2D" uid="uid://dirxprfi5jp3l" path="res://Upgrades/DamageUpgrade.png" id="1_wbyux"]
+
+[resource]
+script = ExtResource("1_h2wqo")
+item_name = "DamageUpgrade"
+icon = ExtResource("1_wbyux")
+is_damage_upgrade = true
+metadata/_custom_type_script = "uid://d16lwmouty2nq"
