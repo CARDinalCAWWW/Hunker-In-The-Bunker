@@ -110,7 +110,7 @@ offset_top = -72.0
 offset_right = -246.0
 offset_bottom = -291.0
 item = ExtResource("9_w1rlq")
-cost = 15
+cost = 50
 
 [node name="Score" type="Label" parent="." groups=["score"]]
 texture_filter = 1

@@ -1,6 +1,6 @@
-# start.gd
+# nxt_lvl.gd
 extends Button
 
 func _on_pressed() -> void:
-	ScoreManager.current_level = 1  # reset to level 1
+	ScoreManager.current_level += 1
 	get_tree().change_scene_to_file("res://PlayArea/play_area.tscn")
