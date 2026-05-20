@@ -7,6 +7,7 @@ var speed
 
 @onready var navigation_agent = $NavigationAgent2D
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var grownsfx = $ZombieSound
 
 @export var DEATH_COOLDOWN = 2.0
 @export var enemy_health = 2
@@ -49,6 +50,7 @@ func stun():
 	if got_hit:
 		return
 	
+	grownsfx.play()
 	got_hit = true
 	enemy_health -= 1
 	
