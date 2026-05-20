@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bylstdkwpk3yk"]
+[gd_scene load_steps=8 format=3 uid="uid://bylstdkwpk3yk"]
 
 [ext_resource type="Texture2D" uid="uid://dv3xd02f4cs4o" path="res://MainMenu/MainMenu.png" id="1_06t4h"]
 [ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="2_7vrkn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bmfk7h4f5ocy0" path="res://MainMenu/start.gd" id="5_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dble8t17o8uu3" path="res://MainMenu/QuitButton.png" id="6_jdgnk"]
 [ext_resource type="Script" uid="uid://cby6cwrys66n5" path="res://MainMenu/quit.gd" id="6_nlkkf"]
+[ext_resource type="AudioStream" uid="uid://b4m4lfmi2iv35" path="res://Music/Intro Music.wav" id="7_jdgnk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,11 @@ offset_bottom = 180.0
 icon = ExtResource("6_jdgnk")
 flat = true
 script = ExtResource("6_nlkkf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jdgnk")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

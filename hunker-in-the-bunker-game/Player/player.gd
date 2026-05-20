@@ -103,6 +103,8 @@ func perform_attack():
 	
 	attack_cooldown_timer = ATTACK_COOLDOWN
 	while attack_cooldown_timer > 0.0:
+		if not is_inside_tree():
+			return
 		await get_tree().process_frame
 		if is_dead:
 			return

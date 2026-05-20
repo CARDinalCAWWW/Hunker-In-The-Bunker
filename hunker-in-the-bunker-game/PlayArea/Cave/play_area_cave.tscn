@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://djagphwylfb80"]
+[gd_scene load_steps=18 format=4 uid="uid://djagphwylfb80"]
 
 [ext_resource type="Texture2D" uid="uid://bml0a0k2fpwku" path="res://PlayArea/Cave/Cave.png" id="1_ct3mc"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_xv8u6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://csolmdfyspk3f" path="res://PlayArea/CanvasLayers/score.gd" id="10_un1qy"]
 [ext_resource type="Texture2D" uid="uid://cpo58ntrl6c02" path="res://PlayArea/Cave/CaveBG.png" id="11_fgcdv"]
 [ext_resource type="PackedScene" uid="uid://cqirwlsxcjnc1" path="res://Shop/Hotbar.tscn" id="13_xrqho"]
+[ext_resource type="AudioStream" uid="uid://c758x65xjqrpv" path="res://Music/Cave Music.wav" id="14_p8xv5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fgcdv"]
 texture = ExtResource("1_ct3mc")
@@ -189,6 +190,11 @@ offset_left = 2.0
 offset_top = -1.0
 offset_right = 2.0
 offset_bottom = -1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_p8xv5")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="pressed" from="HUD/Restart" to="HUD/Restart" method="_on_pressed"]
 [connection signal="pressed" from="HUD/Button" to="HUD/Button" method="_on_pressed"]

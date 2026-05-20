@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://pw5xbgungxwb"]
+[gd_scene load_steps=19 format=4 uid="uid://pw5xbgungxwb"]
 
 [ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/GrassLand/Land1.png" id="1_bdbf3"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://cwlcx3qvpg8t7" path="res://Resources/m5x7.ttf" id="10_683yk"]
 [ext_resource type="Texture2D" uid="uid://c82ntdmbqb86y" path="res://PlayArea/GrassLand/LandBg.png" id="11_df0sw"]
 [ext_resource type="Script" uid="uid://kwwsycimqtmf" path="res://PlayArea/nxt_lvl.gd" id="11_xhbsq"]
+[ext_resource type="AudioStream" uid="uid://bq3xf0olak457" path="res://Music/Plains Music.wav" id="15_jc5fh"]
 [ext_resource type="PackedScene" uid="uid://cqirwlsxcjnc1" path="res://Shop/Hotbar.tscn" id="15_sklti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxk8t"]
@@ -202,6 +203,11 @@ theme_override_fonts/font = ExtResource("10_683yk")
 theme_override_font_sizes/font_size = 16
 text = "Points:"
 script = ExtResource("8_pbx73")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_jc5fh")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="pressed" from="HUD/Restart" to="HUD/Restart" method="_on_pressed"]
 [connection signal="pressed" from="HUD/NxtLvl" to="HUD/NxtLvl" method="_on_pressed"]
