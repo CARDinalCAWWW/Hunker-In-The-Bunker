@@ -62,7 +62,7 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("attack") and can_attack:
 		perform_attack()
 		attackSfx.play()
@@ -179,8 +179,10 @@ func die():
 	print("IM DED")
 	call_deferred("_change_scene")
 
+# player.gd
 func _change_scene():
-	get_tree().change_scene_to_file("res://Shop/shop_scene.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Shop/shop_scene.tscn")
+
 
 func _on_sfx_finished():
 	pass

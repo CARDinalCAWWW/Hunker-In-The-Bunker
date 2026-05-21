@@ -12,7 +12,7 @@ func _ready():
 	self.max_value = max_value_amount
 	self.min_value = min_value_amount
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not is_instance_valid(parent):
 		self.visible = false
 		return

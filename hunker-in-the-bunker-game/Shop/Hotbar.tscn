@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qhc5v7uh62v6" path="res://Items/itemframe.png" id="2_pssro"]
 
 [node name="Hotbar" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_q7qlf")
@@ -111,3 +112,33 @@ offset_right = 33.432816
 offset_bottom = 31.35962
 
 [node name="Node" type="Node" parent="."]
+
+[node name="Itemframe2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(39.765152, 245.6797)
+scale = Vector2(0.6202939, 0.5825188)
+texture = ExtResource("2_pssro")
+
+[node name="Itemframe" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, 246.00002)
+scale = Vector2(0.5757576, 0.5937499)
+texture = ExtResource("2_pssro")
+
+[node name="Itemframe3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(62, 246.00002)
+scale = Vector2(0.5757576, 0.5937499)
+texture = ExtResource("2_pssro")
+
+[node name="Itemframe4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(84, 246.00002)
+scale = Vector2(0.5757576, 0.5937499)
+texture = ExtResource("2_pssro")
+
+[node name="Itemframe5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(105.99999, 246.00002)
+scale = Vector2(0.5757576, 0.5937499)
+texture = ExtResource("2_pssro")

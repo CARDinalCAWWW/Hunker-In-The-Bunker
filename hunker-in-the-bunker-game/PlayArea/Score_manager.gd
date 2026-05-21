@@ -9,7 +9,7 @@ var has_speed_upgrade := false
 var current_level := 1
 var damage_upgrade := 0  # tracks how many damage upgrades bought
 
-func add_score(amount: int = 1) -> void:
+func add_score(amount: int = 50) -> void:
 	score += amount
 	emit_signal("score_changed", score)
 

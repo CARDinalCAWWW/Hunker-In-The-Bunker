@@ -23,6 +23,10 @@ grow_vertical = 2
 
 [node name="Hotbar" parent="." instance=ExtResource("10_xxpc3")]
 layout_mode = 0
+offset_left = 69.0
+offset_top = -38.0
+offset_right = 69.0
+offset_bottom = -38.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1

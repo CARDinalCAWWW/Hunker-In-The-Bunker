@@ -1,6 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://y77uhfy36syk"]
 
 [ext_resource type="Script" uid="uid://civauqvf8ct2i" path="res://Enemy/enemy.gd" id="1_px1sc"]
+[ext_resource type="SpriteFrames" uid="uid://cmb2ha6x0nh6u" path="res://Resources/CaveZombie.tres" id="2_m6jha"]
 [ext_resource type="PackedScene" uid="uid://cjvsrfwlgdjsc" path="res://EnemyHealth/enemyhealth.tscn" id="3_am0pq"]
 [ext_resource type="Script" uid="uid://bs5hhht4tbxml" path="res://Enemy/sprite_2d.gd" id="3_eqilm"]
 [ext_resource type="Texture2D" uid="uid://cpj7i7h2n83ro" path="res://Player/Shadow.png" id="5_ncf7h"]
@@ -8,9 +9,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hvfyp"]
 radius = 2.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_efk13"]
-animations = []
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ncf7h"]
 random_pitch = 1.1
@@ -33,8 +31,8 @@ shape = SubResource("CircleShape2D_hvfyp")
 z_index = 2
 texture_filter = 1
 position = Vector2(0, -7)
-sprite_frames = SubResource("SpriteFrames_efk13")
-animation = &""
+sprite_frames = ExtResource("2_m6jha")
+animation = &"Walk"
 script = ExtResource("3_eqilm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -43,14 +41,6 @@ target_desired_distance = 3.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 20.0
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="NavigationAgent2D"]
-z_index = 2
-texture_filter = 1
-position = Vector2(0, -7)
-sprite_frames = SubResource("SpriteFrames_efk13")
-animation = &""
-script = ExtResource("3_eqilm")
 
 [node name="EnemyHealth" parent="." instance=ExtResource("3_am0pq")]
 offset_left = -9.0

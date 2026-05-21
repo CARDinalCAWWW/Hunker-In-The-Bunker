@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://pw5xbgungxwb"]
+[gd_scene load_steps=20 format=4 uid="uid://pw5xbgungxwb"]
 
 [ext_resource type="Texture2D" uid="uid://fndmpqwcxvb2" path="res://PlayArea/GrassLand/Land1.png" id="1_bdbf3"]
 [ext_resource type="Script" uid="uid://llajr4g03ys6" path="res://PlayArea/tile_map_layer.gd" id="2_4mk7f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y77uhfy36syk" path="res://Enemy/enemy.tscn" id="4_bdbf3"]
 [ext_resource type="Texture2D" uid="uid://dsavntf8tqxpk" path="res://HealthBar/HB.png" id="5_1l75i"]
 [ext_resource type="PackedScene" uid="uid://cqb4f2e2ufj0i" path="res://HealthBar/health_bar.tscn" id="5_to4hi"]
+[ext_resource type="Texture2D" uid="uid://e6asx1t7dywx" path="res://PlayArea/GrassLand/Weaponcooldown.png" id="6_jc5fh"]
 [ext_resource type="PackedScene" uid="uid://vupv3bkynnvw" path="res://AttackBar/attack_bar.tscn" id="7_jeldu"]
 [ext_resource type="Script" uid="uid://dcdqqtao45qbj" path="res://PlayArea/CanvasLayers/Quit.gd" id="7_mlsi0"]
 [ext_resource type="Script" uid="uid://b5gcep71buywk" path="res://PlayArea/restart.gd" id="7_sjdh0"]
@@ -120,12 +121,20 @@ metadata/_edit_lock_ = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="Weaponcooldown" type="Sprite2D" parent="HUD"]
+z_index = 1
+texture_filter = 1
+position = Vector2(58.375, 230.99998)
+scale = Vector2(1.2156249, 0.96875)
+texture = ExtResource("6_jc5fh")
+
 [node name="Hotbar" parent="HUD" instance=ExtResource("15_sklti")]
+z_index = 3
 
 [node name="Hb" type="Sprite2D" parent="HUD"]
 z_index = 1
 texture_filter = 1
-position = Vector2(58.25, 224.5)
+position = Vector2(58.75, 220.5)
 scale = Vector2(1.21875, 1.1562501)
 texture = ExtResource("5_1l75i")
 
@@ -133,10 +142,10 @@ texture = ExtResource("5_1l75i")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = -34.0
-offset_right = 102.0
-offset_bottom = -30.0
+offset_left = 22.5
+offset_top = -38.0
+offset_right = 102.5
+offset_bottom = -34.0
 grow_vertical = 0
 
 [node name="AttackBar" parent="HUD" instance=ExtResource("7_jeldu")]
